@@ -4,10 +4,13 @@ const app = express();
 
 const { PORT } = require("./config/serverConfig.js");
 const apiRoutes = require("./routes/index.js");
+const db = require("./models/index.js");
+
+
 const setupAndStartServer = () => {
-  const db = require("./models/index.js");
+ 
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extends: true }));
+  app.use(bodyParser.urlencoded({ extended: true }));
 
   app.use("/api", apiRoutes);
 
